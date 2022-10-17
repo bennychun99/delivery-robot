@@ -7,7 +7,7 @@ function coordinates(req, res) {
     const latitude = req.body.latitude;
     const longitude = req.body.longitude;
     coords.latitude = latitude;
-    coords.longitude = lonigtude;
+    coords.longitude = longitude;
     res.status(201).json(req.body);
   }
 }
