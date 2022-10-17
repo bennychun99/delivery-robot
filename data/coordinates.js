@@ -1,1 +1,1 @@
-export const coords = { key: 5 };
+export const coords = { latitude: undefined, longitude: undefined };

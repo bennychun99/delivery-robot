@@ -4,9 +4,11 @@ function coordinates(req, res) {
   if (req.method === "GET") {
     res.status(200).json(coords);
   } else if (req.method === "POST") {
-    const coordinate = req.body;
-    coords.key = coordinate;
-    res.status(201).json(coordinate);
+    const latitude = req.body.latitude;
+    const longitude = req.body.longitude;
+    coords.latitude = latitude;
+    coords.longitude = lonigtude;
+    res.status(201).json(req.body);
   }
 }
 
