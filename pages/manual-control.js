@@ -1,9 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/ManualControl.module.css";
+import { Joystick } from "react-joystick-component";
+import { useState } from "react";
 
-export default function Home() {
+export default function ManualControl() {
+  const [move, setMove] = useState({ x: 0, y: 0 });
+
+  const handleMove = (e) => {
+    setMove({ x: e.x, y: e.y });
+  };
+  const handleStop = (e) => {
+    setMove({ x: 0, y: 0 });
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -13,10 +23,21 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>Boas vindas!</h1>
-        <Link href="/dashboard">Dashboard</Link>
-        <Link href="route">Definir rota</Link>
-        <Link href="manual-control">Controle manual</Link>
+        <Link href="/">Home</Link>
+        <h1>Controle manual!</h1>
+        <Joystick
+          size={100}
+          baseColor="red"
+          stickColor="blue"
+          move={handleMove}
+          stop={handleStop}
+          minDistance={100}
+          throttle={50}
+        />
+        {move.x}
+        <br />
+        {move.y}
+        {/* <Joystick.coordinates /> */}
       </main>
       <footer className={styles.footer}>
         <a

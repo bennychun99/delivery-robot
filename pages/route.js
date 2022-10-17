@@ -1,9 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+export default function Route() {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,10 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>Boas vindas!</h1>
-        <Link href="/dashboard">Dashboard</Link>
-        <Link href="route">Definir rota</Link>
-        <Link href="manual-control">Controle manual</Link>
+        <h1>Route!</h1>
       </main>
       <footer className={styles.footer}>
         <a
