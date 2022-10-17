@@ -6,6 +6,7 @@ function coordinates(req, res) {
   } else if (req.method === "POST") {
     const latitude = req.body.latitude;
     const longitude = req.body.longitude;
+    const status = req.body.status;
     coords.latitude = latitude;
     coords.longitude = longitude;
     res.status(201).json(req.body);
