@@ -47,7 +47,6 @@ function ManualControl() {
           move={handleMove}
           stop={handleStop}
           minDistance={100}
-          throttle={50}
         />
         {move.x}
         <br />
