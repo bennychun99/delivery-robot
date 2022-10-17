@@ -1,1 +1,1 @@
-export const moves = { x: 0, y: 0 };
+export const moves = { direcao: 0, velocidade: 0 };
