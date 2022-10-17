@@ -5,7 +5,7 @@ function control(req, res) {
     res.status(200).json(coordinates);
   } else if (req.method === "POST") {
     const coordinate = req.body;
-    coordinates.key = coordinate;
+    coordinates = coordinate;
     res.status(201).json(move);
   }
 }
