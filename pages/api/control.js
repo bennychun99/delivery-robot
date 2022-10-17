@@ -6,6 +6,7 @@ function control(req, res) {
   } else if (req.method === "POST") {
     const move = req.body.move;
     moves.push(move);
+    res.status(201).json(move);
   }
 }
 
