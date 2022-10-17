@@ -1,1 +1,1 @@
-export const moves = { key: "" };
+export const coords = { key: 5 };

@@ -1,13 +1,13 @@
-import { coordinates } from "../../data/coordinates";
+import { coords } from "../../data/coordinates";
 
-function control(req, res) {
+function coordinates(req, res) {
   if (req.method === "GET") {
-    res.status(200).json(coordinates);
+    res.status(200).json(coords);
   } else if (req.method === "POST") {
     const coordinate = req.body;
-    coordinates = coordinate;
-    res.status(201).json(move);
+    coords.key = coordinate;
+    res.status(201).json(coordinate);
   }
 }
 
-export default control;
+export default coordinates;
