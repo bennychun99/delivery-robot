@@ -3,13 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/ManualControl.module.css";
 import { Joystick } from "react-joystick-component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function ManualControl() {
+function ManualControl() {
   const [move, setMove] = useState({ x: 0, y: 0 });
+  const submitMove = async () => {
+    const response = await fetch("/api/control", {
+      method: "POST",
+      body: JSON.stringify({ move }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    console.log(data);
+  };
+
+  useEffect(() => {
+    submitMove();
+  }, [move]);
 
   const handleMove = (e) => {
-    setMove({ x: e.x, y: e.y });
+    setMove({ x: parseInt((e.x / 50) * 90), y: parseInt((e.y / 50) * 100) });
   };
   const handleStop = (e) => {
     setMove({ x: 0, y: 0 });
@@ -37,7 +52,6 @@ export default function ManualControl() {
         {move.x}
         <br />
         {move.y}
-        {/* <Joystick.coordinates /> */}
       </main>
       <footer className={styles.footer}>
         <a
@@ -54,3 +68,4 @@ export default function ManualControl() {
     </div>
   );
 }
+export default ManualControl;
