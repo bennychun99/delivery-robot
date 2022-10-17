@@ -9,6 +9,7 @@ function coordinates(req, res) {
     const status = req.body.status;
     coords.latitude = latitude;
     coords.longitude = longitude;
+    coords.status = status;
     res.status(201).json(req.body);
   }
 }
