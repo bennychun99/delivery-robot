@@ -4,6 +4,9 @@ import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
