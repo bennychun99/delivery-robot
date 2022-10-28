@@ -1,8 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -19,23 +17,6 @@ export default function Home() {
         <Link href="/dashboard">Dashboard</Link>
         <Link href="route">Definir rota</Link>
         <Link href="manual-control">Controle manual</Link>
-        <Swiper
-          slidesPerView={1}
-          loop
-          pagination={pagination}
-          modules={[Pagination]}
-          className="services-swiper"
-        >
-          <SwiperSlide>
-            <div>Primeiro passo</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div>second passo</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div>Last passo</div>
-          </SwiperSlide>
-        </Swiper>
       </main>
       <footer className={styles.footer}>
         <a
