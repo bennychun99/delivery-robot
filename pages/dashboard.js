@@ -6,9 +6,11 @@ import styles from "../styles/Home.module.css";
 
 export default function Dashboard() {
   const getControl = () => {
-    fetch("https://delivery-robot-nine.vercel.app/api/control")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    while (true) {
+      fetch("https://delivery-robot-nine.vercel.app/api/control")
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    }
   };
   return (
     <div className={styles.container}>
