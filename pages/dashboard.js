@@ -5,7 +5,7 @@ import { moves } from "../data/moves";
 import styles from "../styles/Home.module.css";
 
 export default function Dashboard() {
-  while (True) {
+  while (true) {
     fetch("https://delivery-robot-nine.vercel.app/api/control")
       .then((response) => response.json())
       .then((data) => console.log(data));
