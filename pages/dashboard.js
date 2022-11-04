@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
+import { coords } from "../data/coordinates";
+import { moves } from "../data/moves";
 import styles from "../styles/Home.module.css";
 
 export default function Dashboard() {
@@ -13,6 +15,8 @@ export default function Dashboard() {
 
       <main className={styles.main}>
         <h1>Dashboard!</h1>
+        {moves.direcao}
+        {moves.velocidade}
       </main>
       <footer className={styles.footer}>
         <a
