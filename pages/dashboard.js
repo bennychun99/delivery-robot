@@ -8,7 +8,7 @@ export default function Dashboard() {
   const getControl = () => {
     fetch("https://delivery-robot-nine.vercel.app/api/control")
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => (moves = data));
   };
   return (
     <div className={styles.container}>
@@ -21,8 +21,8 @@ export default function Dashboard() {
       <main className={styles.main}>
         <h1>Dashboard!</h1>
 
-        {data.direcao}
-        {data.velocidade}
+        {moves.direcao}
+        {moves.velocidade}
         <button onClick={setInterval(getControl, 1000)}>CLick me</button>
       </main>
       <footer className={styles.footer}>
