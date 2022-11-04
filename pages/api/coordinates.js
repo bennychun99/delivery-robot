@@ -4,7 +4,7 @@ function coordinates(req, res) {
   if (req.method === "GET") {
     res.status(200).json(coords);
   } else if (req.method === "POST") {
-    const latitude = req.body.latitude;
+    const latitude = req.body;
     const longitude = req.body.longitude;
     const status = req.body.status;
     coords.latitude = latitude;
