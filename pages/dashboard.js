@@ -7,9 +7,12 @@ import styles from "../styles/Home.module.css";
 export default function Dashboard() {
   const getControl = () => {
     while (true) {
-      fetch("https://delivery-robot-nine.vercel.app/api/control")
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+      setInterval(
+        fetch("https://delivery-robot-nine.vercel.app/api/control")
+          .then((response) => response.json())
+          .then((data) => console.log(data)),
+        1000
+      );
     }
   };
   return (
