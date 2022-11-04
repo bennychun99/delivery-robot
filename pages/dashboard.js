@@ -5,11 +5,11 @@ import { moves } from "../data/moves";
 import styles from "../styles/Home.module.css";
 
 export default function Dashboard() {
-  while (true) {
+  const getControl = () => {
     fetch("https://delivery-robot-nine.vercel.app/api/control")
       .then((response) => response.json())
       .then((data) => console.log(data));
-  }
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -23,6 +23,7 @@ export default function Dashboard() {
 
         {moves.direcao}
         {moves.velocidade}
+        <button onClick={getControl}>CLick me</button>
       </main>
       <footer className={styles.footer}>
         <a
