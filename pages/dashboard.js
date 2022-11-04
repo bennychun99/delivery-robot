@@ -6,12 +6,9 @@ import styles from "../styles/Home.module.css";
 
 export default function Dashboard() {
   const getControl = () => {
-    setInterval(
-      fetch("https://delivery-robot-nine.vercel.app/api/control")
-        .then((response) => response.json())
-        .then((data) => console.log(data)),
-      1000
-    );
+    fetch("https://delivery-robot-nine.vercel.app/api/control")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   };
   return (
     <div className={styles.container}>
@@ -26,7 +23,7 @@ export default function Dashboard() {
 
         {moves.direcao}
         {moves.velocidade}
-        <button onClick={getControl}>CLick me</button>
+        <button onClick={setInterval(getControl, 1000)}>CLick me</button>
       </main>
       <footer className={styles.footer}>
         <a
