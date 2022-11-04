@@ -6,14 +6,12 @@ import styles from "../styles/Home.module.css";
 
 export default function Dashboard() {
   const getControl = () => {
-    while (true) {
-      setInterval(
-        fetch("https://delivery-robot-nine.vercel.app/api/control")
-          .then((response) => response.json())
-          .then((data) => console.log(data)),
-        1000
-      );
-    }
+    setInterval(
+      fetch("https://delivery-robot-nine.vercel.app/api/control")
+        .then((response) => response.json())
+        .then((data) => console.log(data)),
+      1000
+    );
   };
   return (
     <div className={styles.container}>
