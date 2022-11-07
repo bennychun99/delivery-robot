@@ -14,7 +14,7 @@ function coordinates(req, res) {
     // coords.logginTime = logginTime;
     // coords.motionYaw = motionYaw;
     // coords.status = status;
-    coords = req.body;
+    coords.data = req.body;
     res.status(201).json(req.body);
   }
 }

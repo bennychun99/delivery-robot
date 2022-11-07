@@ -1,1 +1,1 @@
-export const coords = {};
+export const coords = { data: 0 };
