@@ -6,16 +6,14 @@ function coordinates(req, res) {
   } else if (req.method === "POST") {
     const latitude = req.body;
     const longitude = req.body.locationLongitude;
-    const magnetometerX = req.body.magnetometerX;
-    const magnetometerY = req.body.magnetometerY;
-    const magnetometerZ = req.body.magnetometerZ;
+    const logginTime = req.body.logginTime;
+    const motionYaw = req.body.motionYaw;
     const status = req.body.status;
     coords.latitude = latitude;
     coords.longitude = longitude;
+    coords.logginTime = logginTime;
+    coords.motionYaw = motionYaw;
     coords.status = status;
-    coords.magnetometerX = magnetometerX;
-    coords.magnetometerY = magnetometerY;
-    coords.magnetometerZ = magnetometerZ;
     res.status(201).json(req.body);
   }
 }
