@@ -12,8 +12,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: -23.55598,
+  lng: -46.731687,
 };
 
 export default function Dashboard() {
