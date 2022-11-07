@@ -6,7 +6,7 @@ import { Joystick } from "react-joystick-component";
 import { useEffect, useState } from "react";
 
 function ManualControl() {
-  const [move, setMove] = useState({ x: 0, y: 0 });
+  const [move, setMove] = useState({ direcao: 0, velocidade: 0 });
   const submitMove = async () => {
     const response = await fetch("/api/control", {
       method: "POST",
@@ -24,10 +24,20 @@ function ManualControl() {
   }, [move]);
 
   const handleMove = (e) => {
-    setMove({ x: parseInt((e.x / 50) * 90), y: parseInt((e.y / 50) * 100) });
+    const direcao =
+      Math.atan2(e.x, e.y) >= 0
+        ? parseInt(Math.atan2(e.x, e.y) * (180 / Math.PI))
+        : parseInt((Math.atan2(e.x, e.y) + 2 * Math.PI) * (180 / Math.PI));
+    if (Math.atan2(e.y, e.x) >= 0) {
+      parseInt(Math.atan2(e.x, e.y) * (180 / Math.PI));
+    }
+    setMove({
+      direcao: direcao,
+      velocidade: parseInt((Math.sqrt(e.x * e.x + e.y * e.y) * 100) / 50),
+    });
   };
   const handleStop = (e) => {
-    setMove({ x: 0, y: 0 });
+    setMove({ direcao: 0, velocidade: 0 });
   };
   return (
     <div className={styles.container}>
@@ -46,11 +56,10 @@ function ManualControl() {
           stickColor="blue"
           move={handleMove}
           stop={handleStop}
-          minDistance={100}
         />
-        {move.x}
+        Direção: {move.direcao}
         <br />
-        {move.y}
+        Velocidade: {move.velocidade}
       </main>
       <footer className={styles.footer}>
         <a

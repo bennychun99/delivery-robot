@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import React, { useRef, useState } from "react";
 import styles from "../styles/Home.module.css";
 
-export default function Route() {
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,7 +14,10 @@ export default function Route() {
       </Head>
 
       <main className={styles.main}>
-        <h1>Route!</h1>
+        <h1>Boas vindas!</h1>
+        <Link href="/dashboard">Dashboard</Link>
+        <Link href="route">Definir rota</Link>
+        <Link href="manual-control">Controle manual</Link>
       </main>
       <footer className={styles.footer}>
         <a

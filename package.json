@@ -1,22 +1,15 @@
 {
-  "name": "delivery-robot",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "next": "12.3.1",
+    "@react-google-maps/api": "^2.16.0",
+    "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-joystick-component": "^4.0.1",
-    "swiper": "^8.4.4"
-  },
-  "devDependencies": {
-    "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1"
+    "react-joystick-component": "^4.1.0"
   }
 }

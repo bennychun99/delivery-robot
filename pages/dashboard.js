@@ -1,17 +1,61 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { coords } from "../data/coordinates";
 import { moves } from "../data/moves";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import styles from "../styles/Home.module.css";
 
+const containerStyle = {
+  width: "400px",
+  height: "400px",
+};
+
+const center = {
+  lat: -3.745,
+  lng: -38.523,
+};
+
 export default function Dashboard() {
+  const URL_API_CONTROL = "http://localhost:3001/api/control";
   const [control, setControl] = useState({ direcao: 0, velocidade: 0 });
-  const getControl = () => {
-    fetch("https://delivery-robot-nine.vercel.app/api/control")
-      .then((response) => response.json())
-      .then((data) => setControl(data));
+  const getCoords = () => {
+    fetch(URL_API_CONTROL)
+      .then(function (response) {
+        response.json().then(function (data) {
+          setControl(data);
+        });
+      })
+      .catch(function (err) {
+        console.error("Failed retrieving information", err);
+      });
   };
+
+  useEffect(() => {
+    return () => {
+      setInterval(getCoords, 100);
+    };
+  }, []);
+
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: "AIzaSyBt_b4yCQzMA6gDCeVubLninof3nKBNbYs",
+  });
+
+  const [map, setMap] = useState(null);
+
+  const onLoad = useCallback(function callback(map) {
+    // This is just an example of getting and using the map instance!!! don't just blindly copy!
+    const bounds = new window.google.maps.LatLngBounds(center);
+    map.fitBounds(bounds);
+
+    setMap(map);
+  }, []);
+
+  const onUnmount = useCallback(function callback(map) {
+    setMap(null);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,11 +65,23 @@ export default function Dashboard() {
       </Head>
 
       <main className={styles.main}>
+        {isLoaded ? (
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={10}
+            onLoad={onLoad}
+            onUnmount={onUnmount}
+          >
+            {/* Child components, such as markers, info windows, etc. */}
+            <></>
+          </GoogleMap>
+        ) : (
+          <></>
+        )}
         <h1>Dashboard!</h1>
-
-        {control.direcao}
-        {control.velocidade}
-        <button onClick={setInterval(getControl, 1000)}>CLick me</button>
+        <p>{JSON.stringify(control)}</p>
+        {/* <button onClick={() => setInterval(getCoords, 100)}>CLick me</button> */}
       </main>
       <footer className={styles.footer}>
         <a

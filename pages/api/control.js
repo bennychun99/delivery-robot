@@ -5,8 +5,8 @@ function control(req, res) {
     res.status(200).json(moves);
   } else if (req.method === "POST") {
     const move = req.body.move;
-    moves.direcao = move.x;
-    moves.velocidade = move.y;
+    moves.direcao = move.direcao;
+    moves.velocidade = move.velocidade;
     res.status(201).json(move);
   }
 }
