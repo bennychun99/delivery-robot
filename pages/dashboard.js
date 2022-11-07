@@ -1,19 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
 import React, { useCallback, useEffect, useState } from "react";
-import { coords } from "../data/coordinates";
-import { moves } from "../data/moves";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { MarkerF, GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import styles from "../styles/Home.module.css";
 
 const containerStyle = {
-  width: "400px",
-  height: "400px",
+  width: "100%",
+  height: "600px",
 };
 
 const center = {
-  lat: -23.55598,
-  lng: -46.731687,
+  lat: -23.554922,
+  lng: -46.73105,
 };
 
 export default function Dashboard() {
@@ -42,20 +40,6 @@ export default function Dashboard() {
     googleMapsApiKey: "AIzaSyBt_b4yCQzMA6gDCeVubLninof3nKBNbYs",
   });
 
-  const [map, setMap] = useState(null);
-
-  const onLoad = useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-
-    setMap(map);
-  }, []);
-
-  const onUnmount = useCallback(function callback(map) {
-    setMap(null);
-  }, []);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -69,10 +53,10 @@ export default function Dashboard() {
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={10}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
+            clickableIcons={false}
+            zoom={17}
           >
+            <MarkerF position={center} />
             {/* Child components, such as markers, info windows, etc. */}
             <></>
           </GoogleMap>
