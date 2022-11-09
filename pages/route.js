@@ -75,14 +75,14 @@ export default function Home() {
                     onChange={(event) => handleFormChange(event, index)}
                     value={form.long}
                   />
-                  <button onClick={() => removeFields(index)}>Remove</button>
+                  <button onClick={() => removeFields(index)}>Remover</button>
                 </div>
               );
             })}
           </form>
-          <button onClick={addFields}>Add More..</button>
+          <button onClick={addFields}>Adicionar</button>
           <br />
-          <button onClick={submit}>Submit</button>
+          <button onClick={submit}>Enviar</button>
         </div>
       </main>
       <footer className={styles.footer}>
