@@ -24,13 +24,7 @@ function ManualControl() {
   }, [move]);
 
   const handleMove = (e) => {
-    const direcao =
-      Math.atan2(e.x, e.y) >= 0
-        ? parseInt(Math.atan2(e.x, e.y) * (180 / Math.PI))
-        : parseInt((Math.atan2(e.x, e.y) + 2 * Math.PI) * (180 / Math.PI));
-    if (Math.atan2(e.y, e.x) >= 0) {
-      parseInt(Math.atan2(e.x, e.y) * (180 / Math.PI));
-    }
+    const direcao = parseInt(Math.atan2(e.x, e.y) * (180 / Math.PI));
     setMove({
       direcao: direcao,
       velocidade: parseInt((Math.sqrt(e.x * e.x + e.y * e.y) * 100) / 50),
@@ -52,14 +46,15 @@ function ManualControl() {
         <h1>Controle manual!</h1>
         <Joystick
           size={100}
-          baseColor="red"
-          stickColor="blue"
+          baseColor="black"
+          stickColor="red"
           move={handleMove}
           stop={handleStop}
         />
-        Direção: {move.direcao}
-        <br />
-        Velocidade: {move.velocidade}
+        <div className={styles.info}>
+          <p>Direção: {move.direcao}</p>
+          <p>Velocidade: {move.velocidade}</p>
+        </div>
       </main>
       <footer className={styles.footer}>
         <a
