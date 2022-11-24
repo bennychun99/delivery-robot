@@ -18,10 +18,11 @@ function ManualControl() {
     const data = await response.json();
     console.log(data);
   };
+  setInterval(submitMove, 500);
 
-  useEffect(() => {
-    submitMove();
-  }, [move]);
+  // useEffect(() => {
+  //   submitMove();
+  // }, [move]);
 
   const handleMove = (e) => {
     const direcao = parseInt(Math.atan2(e.x, e.y) * (180 / Math.PI));
