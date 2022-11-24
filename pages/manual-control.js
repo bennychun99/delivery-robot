@@ -18,11 +18,11 @@ function ManualControl() {
     const data = await response.json();
     console.log(data);
   };
-  setInterval(submitMove, 500);
+  // setInterval(submitMove, 750);
 
-  // useEffect(() => {
-  //   submitMove();
-  // }, [move]);
+  useEffect(() => {
+    submitMove();
+  }, [move]);
 
   const handleMove = (e) => {
     const direcao = parseInt(Math.atan2(e.x, e.y) * (180 / Math.PI));
@@ -44,7 +44,7 @@ function ManualControl() {
 
       <main className={styles.main}>
         <Link href="/">Home</Link>
-        <h1>Controle manual!</h1>
+        <h1>Controle manual</h1>
         <Joystick
           size={100}
           baseColor="black"
@@ -56,6 +56,7 @@ function ManualControl() {
           <p>Direção: {move.direcao}</p>
           <p>Velocidade: {move.velocidade}</p>
         </div>
+        <button onClick={handleStop}>PARAR</button>
       </main>
       <footer className={styles.footer}>
         <a
