@@ -192,6 +192,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <Link href="/">Home</Link>
         <h1>Definir rota</h1>
 
         {coords ? addCoord : selectCoord}

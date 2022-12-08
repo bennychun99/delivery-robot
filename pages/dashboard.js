@@ -49,6 +49,7 @@ export default function Dashboard() {
       </Head>
 
       <main className={styles.main}>
+        <Link href="/">Home</Link>
         <h1>Dashboard</h1>
         {isLoaded ? (
           <GoogleMap

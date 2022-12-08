@@ -43,7 +43,7 @@ function ManualControl() {
       </Head>
 
       <main className={styles.main}>
-        <Link href="/">Home</Link>
+        <Link href="/">Voltar</Link>
         <h1>Controle manual</h1>
         <Joystick
           size={100}
