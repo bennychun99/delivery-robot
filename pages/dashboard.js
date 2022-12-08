@@ -65,6 +65,7 @@ export default function Dashboard() {
         )}
         <h1>Dashboard!</h1>
         <p>{JSON.stringify(control)}</p>
+        <p>Última atualização em: 05/12/2022 às 05:36</p>
         {/* <button onClick={() => setInterval(getCoords, 100)}>CLick me</button> */}
       </main>
       <footer className={styles.footer}>
