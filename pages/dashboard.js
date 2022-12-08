@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useCallback, useEffect, useState } from "react";
 import { MarkerF, GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 const containerStyle = {
   width: "100%",
@@ -49,7 +50,7 @@ export default function Dashboard() {
       </Head>
 
       <main className={styles.main}>
-        <Link href="/">Home</Link>
+        <Link href="/">Voltar</Link>
         <h1>Dashboard</h1>
         {isLoaded ? (
           <GoogleMap
