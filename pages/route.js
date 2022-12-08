@@ -194,9 +194,6 @@ export default function Home() {
       <main className={styles.main}>
         <h1>Definir rota</h1>
 
-        {JSON.stringify(dik)}
-        {JSON.stringify(coordinatePoints)}
-
         {coords ? addCoord : selectCoord}
 
         <button onClick={handleCoords}>Inserir coordenadas manualmente</button>
