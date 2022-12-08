@@ -49,6 +49,7 @@ export default function Dashboard() {
       </Head>
 
       <main className={styles.main}>
+        <h1>Dashboard</h1>
         {isLoaded ? (
           <GoogleMap
             mapContainerStyle={containerStyle}
@@ -63,7 +64,6 @@ export default function Dashboard() {
         ) : (
           <></>
         )}
-        <h1>Dashboard!</h1>
         <p>{JSON.stringify(control)}</p>
         <p>Última atualização em: 05/12/2022 às 05:36</p>
         {/* <button onClick={() => setInterval(getCoords, 100)}>CLick me</button> */}
